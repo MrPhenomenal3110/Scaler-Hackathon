@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@400;600&display=swap');
+
+
+
+:root{
+    margin: auto;
+    --type-clr : rgb(71, 38, 201);
+    --bg-clr1 : #65dfc9;
+    --bg-clr2 : #6cdbeb;
+    --htxt-clr : rgb(255, 255, 255);
+    --txt-clr : hsl(0, 0%, 100%);
+    --theme-bg-clr : rgb(153, 153, 153);
+}
+
+
+/* navbar customization */
+
+.title img{
+    height: 16vh;
+    width: 19vw;
+    filter: drop-shadow(0.5rem 0.25rem 0.25rem rgba(134, 185, 177, 0.264));
+    border-radius: 0.5rem;
+}
+
+.navbar .title img{
+    margin-top: -2.85rem;
+    position: absolute;
+}
+
+
+.navbar ul{
+    font-family: 'Handjet', cursive;
+    font-weight: bolder;
+    list-style: none;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding: 2rem;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color : var(--txt-clr);
+    margin: 0.5rem;
+}
+
+
+/* Button decoration */
+
+
+.navbar ul li a{
+    position: relative;
+    margin: 1rem;
+    padding: 1rem;
+    transition: 200ms ease-in-out;
+    border-radius: 0.25rem;
+    color: var(--txt-clr);
+    text-shadow:
+     0 0 0.75rem var(--txt-clr),
+     0 0 0.6rem hsl(0 0% 100% / 0.2);
+    box-shadow: 
+        0 0 0.5rem var(--txt-clr),
+    inset 0 0 0.25rem var(--txt-clr);
+
+    transition: background-color 200ms linear;
+    transition: border 200ms linear;
+
+}
+.navbar ul li a::before{
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    background-color: var(--txt-clr);
+    top: 110%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1.5rem);
+    opacity: 0.2;
+
+    transition: opacity 200ms linear;
+}
+
+.navbar ul li a::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 2rem 0.25rem var(--txt-clr);
+    opacity: 0;
+    transition: opacity 200ms linear;
+    
+}
+
+
+.navbar ul li a:hover::after,
+.navbar ul li a:focus::after{
+    opacity: 0.75;
+    
+}
+
+.navbar ul li a:hover,
+.navbar ul li a:focus{
+    border: 2px solid rgba(0, 0, 0, 0.055);
+    cursor: pointer;
+    text-shadow: none;
+    background: var(--txt-clr);
+    color: var(--bg-clr1);
+    
+}
+
+.navbar ul li a:hover::before,
+.navbar ul li a:focus::before{
+    opacity: 0.5;
+}
+
+
+
+.navbar{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1.5em;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0;
+
+}
+
+
+
+
+.navbar .title{
+    margin-bottom: 1.5rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+
+.navbar .links{
+    font-size: 1.25rem;
+    width: fit-content;
+}
+
+
+
+/* creating the background */
+body {
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+}
+
+.circle1,
+.circle2,
+.circle3,
+.circle4{
+    background: rgba(255, 255, 255, 0.123);
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.151)
+    );
+    height: 20rem;
+    width: 20rem;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+.circle1{
+    width: 18rem;
+    height: 18rem;
+    bottom: 5%;
+    right: 20%;
+}
+.circle2{
+    top: 5%;
+    left: 15%;
+}
+.circle3{
+    width: 10rem;
+    height: 10rem;
+    bottom: 15%;
+    right: 70%;
+}
+.circle4{
+    width: 15rem;
+    height: 15rem;
+    top: 10%;
+    right: 10%;
+}
+
+.navbar{
+    background: rgba(127, 126, 126, 0.305);
+    background: linear-gradient(
+        to right-bottom,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.2),
+    );
+    backdrop-filter: blur(0.5rem);
+    z-index: 3;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.229);
+}
+
+
+.content{
+    position: relative;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: top;
+    justify-content: space-around;
+    overflow: hidden;
+    width: 95vw;
+    height: 50vh;
+    padding: 1.5em;
+    background: rgba(127, 126, 126, 0.305);
+    background: linear-gradient(
+        to right-bottom,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.2),
+    );
+    backdrop-filter: blur(0.25rem);
+    z-index: 3;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.229);
+    margin-top: 2rem;
+    border-radius: 2rem;
+}
+.content .writeup1,
+.content .writeup2{
+    position: absolute;
+}
+
+.writeup1{
+    top: 20%;
+    width: 40vw;
+}
+.writeup2{
+    margin-top: 2rem;
+    bottom: 20%;
+}
+
+.headline{
+    margin-bottom: 2rem;
+    font-family: 'Handjet', cursive;
+    font-weight: bolder;
+    
+    font-size: 2.75em;
+}
+
+.news-img{
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: -10%;
+    top: -100%;
+    transition: transform 200ms ease;
+}
+
+.news-img:hover,
+.news-img:focus{
+    cursor: pointer;
+    transform: scale(1.25,1.25);
+}
+
+.writeup1,
+.writeup2{
+    width: 80%;
+}
+
+
+
+/* #element {
+    color : var(--type-clr);
+} */
+
