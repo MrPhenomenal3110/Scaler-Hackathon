@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+
+:root{
+    --bg-clr1 : hsl(0, 0%, 25%) ;
+    --bg-clr2 : hsl(0, 0%, 0%) ;
+    --htxt-clr : rgb(255, 255, 255);
+    --txt-clr : hsl(0, 0%, 100%);
+    --theme-bg-clr : rgb(153, 153, 153);
+}
+
+
+body{
+    z-index: var(--index-body,1);
+    background-color: var(--bg-clr1);
+    color: white;
+    margin: 0;
+}
+
+.main{
+    position: relative;
+    bottom: 0;
+    margin: 0 1rem;
+}
+
+
+/* Creating the header */
+
+.head{
+    color : var(--htxt-clr);
+    font-family: 'Kalam', cursive;
+    font-size: 2.5rem;
+    display: inline-block;
+    border-radius: 0.5rem;
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-shadow:
+     0 0 0.5rem var(--shine-clr),
+     0 0 1rem var(--shine-clr);
+
+}
+
+/* Creating a NavBar */
+
+.navbar{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    opacity: 100%;
+    filter: blur(1rem, white);
+    background-color: var(--bg-clr2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Bebas Neue', sans-serif;    
+    height: fixed;
+    box-shadow: 
+        0.75rem 0.5rem 0.75rem black,
+    inset 0 0 0.1rem black;
+    z-index :1;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.6rem;
+    padding-inline: 0rem;
+    font-size: 1rem;
+    margin-right: 0rem;
+    list-style: none;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color : var(--txt-clr);
+    margin: 0.5rem;
+}
+
+
+/* Button decoration */
+
+
+.navbar ul li a{
+    position: relative;
+    margin: 1rem;
+    padding: 1rem;
+    transition: 200ms ease-in-out;
+    border-radius: 0.25rem;
+    color: var(--txt-clr);
+    text-shadow:
+     0 0 0.75rem var(--txt-clr),
+     0 0 0.6rem hsl(0 0% 100% / 0.2);
+    box-shadow: 
+        0 0 0.5rem var(--txt-clr),
+    inset 0 0 0.25rem var(--txt-clr);
+
+    transition: background-color 200ms linear;
+
+}
+.navbar ul li a::before{
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    background-color: var(--txt-clr);
+    top: 110%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1.5rem);
+    opacity: 0.2;
+
+    transition: opacity 200ms linear;
+}
+
+.navbar ul li a::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 2rem 0.25rem var(--txt-clr);
+    opacity: 0;
+    transition: opacity 200ms linear;
+}
+
+
+.navbar ul li a:hover::after,
+.navbar ul li a:focus::after{
+    opacity: 0.75;
+    
+}
+
+.navbar ul li a:hover,
+.navbar ul li a:focus{
+    cursor: pointer;
+    text-shadow: none;
+    background: var(--txt-clr);
+    color: var(--bg-clr1);
+    
+}
+
+.navbar ul li a:hover::before,
+.navbar ul li a:focus::before{
+    opacity: 0.5;
+}
+
+
+.visually-hidden{
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.color-picker > fieldset{
+    border: 0;
+    display: flex;
+    gap: 2rem;
+    width: fit-content;
+    padding: 1rem 3rem;
+    margin-inline: auto;
+    border-radius: 0 0 0.75rem 0.75rem;
+    background-color: var(--theme-bg-clr);
+}
+
+.color-picker input[type = "radio"]{
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    outline: 2px solid var(--radio-clr,currentColor);
+    border-radius: 50%;
+
+}
+
+/* Hover effect for radio buttons for themes */
+
+.color-picker input[type="radio"]:hover,
+:focus{
+    cursor: pointer;
+}
+
+.color-picker input[type = "radio"]#blue:hover,
+:focus{
+    --radio-clr : hsl(204, 100%, 50%);
+    background-color: hsl(204, 100%, 50%);
+}
+.color-picker input[type = "radio"]#red:hover,
+:focus{
+    --radio-clr : hsl(0, 100%, 50%);
+    background-color: hsl(0, 100%, 50%);
+}
+.color-picker input[type = "radio"]#green:hover,
+:focus{
+    --radio-clr : hsl(96, 100%, 30%);
+    background-color: hsl(96, 100%, 50%);
+}
+.color-picker input[type = "radio"]#yellow:hover,
+:focus{
+    --radio-clr : hsl(54, 100%, 50%);
+    background-color: hsl(54, 100%, 50%);
+}
+.color-picker input[type = "radio"]#aqua:hover,
+:focus{
+    --radio-clr : hsl(170, 100%, 50%);
+    background-color: hsl(170, 100%, 50%);
+}
+.color-picker input[type = "radio"]#dark:hover,
+:focus{
+    --radio-clr : hsl(0, 0%, 0%);
+    background-color: hsl(0, 0%, 0%);
+}
+#marbles{
+    background: rgba(127, 126, 126, 0.305);
+    background: linear-gradient(
+        to right-bottom,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.2),
+    );
+    backdrop-filter: blur(0.25rem);
+    z-index: 10 !important;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.229);
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    position: relative;
+
+}
+
+span{
+    z-index: -1;
+    position: absolute;
+}
+
+/* #marbles{
+    position: relative;
+} */
+
+
+
+
+/* Customizing the radio buttons for themes */
+
+
+.color-picker input[type = "radio"]#blue:checked{
+    --radio-clr : hsl(204, 100%, 50%);
+    background-color : hsl(204, 100%, 50%);
+}
+
+
+.color-picker input[type = "radio"]#red:checked{
+    --radio-clr : hsl(0, 100%, 50%);
+    background-color : hsl(0, 100%, 50%);
+}
+
+
+.color-picker input[type = "radio"]#green:checked{
+    --radio-clr : hsl(96, 100%, 50%);
+    background-color : hsl(96, 100%, 50%);
+}
+
+
+.color-picker input[type = "radio"]#yellow:checked{
+    --radio-clr : hsl(54, 100%, 50%);
+    background-color : hsl(54, 100%, 50%);
+}
+
+
+.color-picker input[type = "radio"]#aqua:checked{
+    --radio-clr : hsl(170, 100%, 50%);
+    background-color : hsl(170, 100%, 50%);
+}
+
+
+.color-picker input[type = "radio"]#dark:checked{
+    --radio-clr : hsl(0, 0%, 0%);
+    background-color : hsl(0, 0%, 0%);
+}
+
+/* Changing the theme  */
+
+:root:has(#dark:checked){
+    --bg-clr1 : hsl(0, 0%, 25%) ;
+    --bg-clr2 : hsl(0, 0%, 0%) ;
+    --htxt-clr : rgb(255, 255, 255);
+    --txt-clr : hsl(0, 0%, 100%);
+    --shine-clr : hsl(0, 0%, 45%);
+
+}
+:root:has(#blue:checked){
+    --bg-clr1 : hsl(194, 48%, 23%) ;
+    --bg-clr2 : hsl(194, 54%, 36%) ;
+    --htxt-clr : rgb(149, 234, 255);
+    --txt-clr : hsl(187, 78%, 91%);
+    --shine-clr : hsl(183, 24%, 18%);
+}
+:root:has(#green:checked){
+    --bg-clr1 : hsl(138, 57%, 24%) ;
+    --bg-clr2 : hsl(138, 49%, 38%) ;
+    --htxt-clr : hsl(138, 100%, 79%) ;
+    --txt-clr : hsl(0, 0%, 100%);
+    --shine-clr : hsl(194, 73%, 15%);
+}
+:root:has(#yellow:checked){
+    --bg-clr1 : hsl(44, 51%, 35%) ;
+    --bg-clr2 : hsl(51, 62%, 44%) ;
+    --htxt-clr : rgb(255, 253, 148);
+    --txt-clr : hsl(0, 0%, 100%);
+    --shine-clr : hsl(0, 71%, 24%);
+}
+:root:has(#red:checked){
+    --bg-clr1 : hsl(0, 100%, 13%) ;
+    --bg-clr2 : hsl(0, 68%, 47%) ;
+    --htxt-clr : rgb(238, 169, 169);
+    --txt-clr : hsl(0, 0%, 100%);
+    --shine-clr : hsl(0, 51%, 19%);
+}
+:root:has(#aqua:checked){
+    --bg-clr1 : hsl(176, 60%, 18%) ;
+    --bg-clr2 : hsl(167, 64%, 38%) ;
+    --htxt-clr : rgb(186, 255, 240);
+    --txt-clr : hsl(0, 0%, 100%);
+    --shine-clr : hsl(162, 43%, 19%);
+}
+
+/* Particle Animation Stop button */
+/* #marbles{
+    z-index: 10;
+}
+.stop{
+    position: absolute;
+    top: -9%;
+    right: -0.5%;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    margin: 1rem 1rem;
+    padding: 0.25rem 0.25rem;
+    border-radius: 0.5rem;
+    height: 3.75rem;
+    z-index: 0;
+}
+
+#stop-anim:checked{
+    --index-body :1;
+} */
+
+
+  
